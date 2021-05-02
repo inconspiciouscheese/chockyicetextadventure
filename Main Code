@@ -1,0 +1,93 @@
+required = "You have to choose one of the options"
+
+def intro():
+    print("You are in a restaurant called 'Chocky Ice'. An ugly waitress brings you a menu with chocky ice water, chocky ice ice, chokcy ice ice cream, and chocky ice children.")
+    print("Which do you choose?")
+    print("A: chocky ice water\nB: chonky ice ice\nC: chocky ice ice cream\nD: chocky ice children")
+    choice = input().lower()
+    if choice == "b":
+        chocky_ice()
+    elif choice == "a" or choice == "c" or choice == "d":
+        print("here is a free chair in hell \nyou died")
+        play_again()
+    else: 
+        print(required)
+        intro()
+
+def chocky_ice():
+    print("The waitress offers you chocky ice. Do you take it? (y/n)")
+    choice = input().lower()
+    if choice == "y":
+        print("oops you died\ndon't ever come back again\npress ctrl + w to revive")
+    elif choice == "n":
+        jeff_bezos()
+    else: 
+        print(required)
+        chocky_ice()
+
+def jeff_bezos():
+    print("You leave the restaurant and go to Jeff Bezos's house. Should you:")
+    print("A: knock on the door\nB: Press the Amazon doorbell\nC: Go back to restaurant")
+    choice = input().lower()
+    if choice == "a":
+        jeff_house()
+    elif choice == "b":
+        print("You are suddenly transported in front of another house. Nobody seems to be home, but behind you, an Amazon prime delivery man pulls up and out comes Elon Musk disguised in an Amazon prime uniform.")
+        elon_musk()
+    elif choice == "c":
+        intro()
+    else:
+        print(required)
+        jeff_bezos()
+
+def jeff_house():
+    print("You enter Jeff Bezos's house. Outside, you can see an Amazon Prime van pull up and a delivery guy get out with an Amazon package for Jeff Bezos.\nYou ask Jeff for an Amazon prime membership. Jeff says no. \nDo you fight Jeff Bezos for an Amazon prime membership? (y/n)")
+    choice = input().lower()
+    if choice == "y":
+        print("You have defeated Jeff Bezos because you had hair and he did not. Outside, the Amazon delivery man takes off his hat and reveals that he is Elon Musk.")
+        elon_musk()
+    elif choice == "n":
+        print("Too bad, Jeff Bezos wanted to fight. He defeats you with his chocky ice. As your eyes close, he leans down and whispers 'Chocky ice forever'")
+        play_again()
+    else:
+        print(required)
+        jeff_house()
+
+def elon_musk():
+    print("You enter the house with Elon Musk. Inside, you can see a cybertruck. \nYou ask Elon Musk if he will give you the cybertruck. He says yes.\nYou ask Elon Musk for a rock. He gives you a small pebble.\nDo you throw the pebble at the cybertruck? (y/n)")
+    choice = input().lower()
+    if choice == "y":
+        broken_truck()
+    elif choice =="n":
+        print("Elon Musk takes the rock from you and throws it at the truck himself.")
+        broken_truck()
+    else:
+        print(required)
+        elon_musk()
+
+def broken_truck():
+    print("Elon Musk chuckles and then dissolves into thin air. (y/n)")
+    choice = input().lower()
+    if choice == "y":
+        print("You feel yourself dissolving. Perhaps now you will join Elon Musk in a higher world with no Amazon prime.")
+        play_again()
+    elif choice == "n":
+        print("You are left standing in an empty house. I guess it's yours now. Buy some chocky ice.")
+        play_again()
+    else:
+        print(required)
+        broken_truck
+
+def play_again():
+    print("Do you want to play again? (y/n)")
+    choice = input().lower()
+    if choice == "y":
+        intro()
+    elif choice == "n":
+        print("ha that's funny")
+        intro()
+    else:
+        print(required)
+        play_again()
+
+intro()
