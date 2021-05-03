@@ -1,0 +1,78 @@
+#store possible options
+yes = ["y", "Y", "yes", "Yes"]
+no = ["no", "No", "n", "N"]
+a = ["a", "A"]
+b = ["b", "B"]
+c = ["c", "C"]
+d = ["d", "D"]
+
+#function that takes in an option (one of the lists above), the next branch, and an optional extra message
+#for some reason you have to put choice in there - idk why
+def branch(choice, option, next_branch, message = ""):
+    if choice in option:
+        print(message)
+        next_branch()
+
+#function that runs if the choice does not match any of the options (else statement)
+def choice_not_option(current_branch):
+    print("\nChoose one of the options")
+    current_branch()
+#actual games
+def intro():
+    print("You are in a restaurant called 'Chocky Ice'. An ugly waitress brings you a menu with chocky ice water, chocky ice ice, chokcy ice ice cream, and chocky ice children.")
+    print("Which do you choose?")
+    print("A: chocky ice water\nB: chonky ice ice\nC: chocky ice ice cream\nD: chocky ice children")
+    choice = input()
+    branch(choice, b, chocky_ice)
+    branch(choice, a, play_again, "here is a free chair in hell \nyou died")
+    branch(choice, c, play_again, "here is a free chair in hell \nyou died")
+    branch(choice, d, play_again, "here is a free chair in hell \nyou died")
+    choice_not_option(intro)
+
+def chocky_ice():
+    print("The waitress offers you chocky ice. Do you take it?")
+    choice = input()
+    branch(choice, yes, play_again, "\noops you died\ndon't ever come back again\npress ctrl + w to revive")
+    branch(choice, no, jeff_bezos)
+    choice_not_option(chocky_ice)
+
+def jeff_bezos():
+    print("You leave the restaurant and go to Jeff Bezos's house. Should you:")
+    print("A: knock on the door\nB: Press the Amazon doorbell\nC: Go back to restaurant")
+    choice = input()
+    branch(choice, a, jeff_house)
+    branch(choice, b, elon_musk, "You are suddenly transported in front of another house. Nobody seems to be home, but behind you, an Amazon prime delivery man pulls up and out comes Elon Musk disguised in an Amazon prime uniform.")
+    branch(choice, c, intro)
+    choice_not_option(jeff_bezos)
+
+def jeff_house():
+    print("You enter Jeff Bezos's house. Outside, you can see an Amazon Prime van pull up and a delivery guy get out with an Amazon package for Jeff Bezos.\nYou ask Jeff for an Amazon prime membership. Jeff says no. \nDo you fight Jeff Bezos for an Amazon prime membership? (y/n)")
+    choice = input()
+    branch(choice, yes, elon_musk, "You have defeated Jeff Bezos because you had hair and he did not. Outside, the Amazon delivery man takes off his hat and reveals that he is Elon Musk.")
+    branch(choice, no, play_again, "Too bad, Jeff Bezos wanted to fight. He defeats you with his chocky ice. As your eyes close, he leans down and whispers 'Chocky ice forever'")
+    choice_not_option(jeff_house)
+
+def elon_musk():
+    print("You enter the house with Elon Musk. Inside, you can see a cybertruck. \nYou ask Elon Musk if he will give you the cybertruck. He says yes.\nYou ask Elon Musk for a rock. He gives you a small pebble.\nDo you throw the pebble at the cybertruck? (y/n)")
+    choice = input()
+    branch(choice, yes, broken_truck)
+    branch(choice, no, broken_truck, "Elon Musk takes the rock from you and throws it at the truck himself.")
+    choice_not_option(elon_musk)
+
+def broken_truck():
+    print("Elon Musk chuckles and then dissolves into thin air. (y/n)")
+    choice = input()
+    branch(choice, yes, play_again, "You feel yourself dissolving. Perhaps now you will join Elon Musk in a higher world with no Amazon prime.")
+    branch(choice, no, play_again, "You are left standing in an empty house. I guess it's yours now. Buy some chocky ice.")
+    choice_not_option(broken_truck)
+    
+def play_again():
+    print("Do you want to play again?")
+    choice = input()
+    if choice in no:
+        print("Game Over")
+        exit()
+    branch(choice, yes, intro)
+    choice_not_option(play_again)
+
+intro()
